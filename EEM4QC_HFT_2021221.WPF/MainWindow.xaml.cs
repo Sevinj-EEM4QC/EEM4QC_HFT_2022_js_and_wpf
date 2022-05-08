@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using EEM4QC_HFT_2021221.Models;
 using EEM4QC_HFT_2021221.Logic;
 using EEM4QC_HFT_2021221.WPF.Mappers;
+using EEM4QC_HFT_2021221.Repository;
+using EEM4QC_HFT_2021221.Data;
 
 namespace EEM4QC_HFT_2021221.WPF
 {
@@ -24,13 +26,17 @@ namespace EEM4QC_HFT_2021221.WPF
     public partial class MainWindow : Window
     {
         private readonly IEmployeeLogic _employeeLogic;
+        private DataContext _data = new DataContext();
+        private readonly IBaseRepository repo;
 
         public MainWindow()
         {
             InitializeComponent();
+            repo = new BaseRepository(_data);
+            _employeeLogic = new EmployeeLogic(repo);
         }
 
-        public MainWindow(IEmployeeLogic employeeLogic)
+        public MainWindow(EmployeeLogic employeeLogic)
         {
             InitializeComponent();
             _employeeLogic = employeeLogic;
