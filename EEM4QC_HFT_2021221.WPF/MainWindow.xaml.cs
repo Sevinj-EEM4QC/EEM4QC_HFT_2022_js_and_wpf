@@ -62,7 +62,7 @@ namespace EEM4QC_HFT_2021221.WPF
                 Emp_Name = "ModifiedEmployee",
             };
 
-            int employeeId = 0;
+            int employeeId = 1;
 
             var result = _employeeLogic.Edit(employeeId, employeeData);
 
@@ -78,7 +78,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
         void BtnDelete(object sender, RoutedEventArgs e)
         {
-            int employeeId = 0;
+            int employeeId = 3;
 
             var result = _employeeLogic.Delete(employeeId);
 
@@ -99,7 +99,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
             Models.HrEmployee result = _employeeLogic.GetSingle(employeeId);
 
-            if (result != null)
+            if (result == null)
             {
                 txt1.Text = "Employee not found!";
             }
@@ -114,7 +114,7 @@ namespace EEM4QC_HFT_2021221.WPF
         {
             List<Models.UnExitedEmployeeModel> result = _employeeLogic.GetUnExitedEmployees();
 
-            if (result != null)
+            if (result == null || result.Count == 0)
             {
                 txt1.Text = "UnExitedEmployees not found!";
             }
@@ -136,7 +136,7 @@ namespace EEM4QC_HFT_2021221.WPF
         {
             List<Models.HrEmployee> result = _employeeLogic.GetList();
 
-            if (result != null)
+            if (result == null || result.Count == 0)
             {
                 txt1.Text = "Employees not found!";
             }
