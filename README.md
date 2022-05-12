@@ -1,7 +1,7 @@
 # GUI in WPF and JS
 # 8/5/2022
 
-#Results: 
+# Results: 
 
 ![All Employee List](https://user-images.githubusercontent.com/75704078/167858738-6161339a-fe17-4b90-90c8-35b1360d38f4.png)
 ![Unexisted Employees](https://user-images.githubusercontent.com/75704078/167858767-4c80bb13-2081-40f2-9e18-d6e68abb382f.png)
