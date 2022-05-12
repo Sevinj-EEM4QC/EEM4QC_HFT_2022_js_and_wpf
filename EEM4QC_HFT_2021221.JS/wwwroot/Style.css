@@ -1,0 +1,38 @@
+﻿table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 2px dotted gray;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 9px;
+}
+
+th {
+    background-color: goldenrod;
+}
+
+#formdiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+    #formdiv label, button, input {
+        margin: 8px;
+        padding: 4px;
+    }
+
+    #formdiv label {
+        font-weight: bolder;
+    }
+
+table button {
+    padding: 4px;
+}
