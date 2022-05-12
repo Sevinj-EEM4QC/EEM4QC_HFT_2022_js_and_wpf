@@ -78,7 +78,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
         void BtnDelete(object sender, RoutedEventArgs e)
         {
-            int employeeId = 4;
+            int employeeId = 9;
 
             var result = _employeeLogic.Delete(employeeId);
 
@@ -95,7 +95,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
         void BtnGetEmployee(object sender, RoutedEventArgs e)
         {
-            int employeeId = 0;
+            int employeeId = 5;
 
             Models.HrEmployee result = _employeeLogic.GetSingle(employeeId);
 

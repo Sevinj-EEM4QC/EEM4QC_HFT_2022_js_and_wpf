@@ -45,7 +45,7 @@ namespace EEM4QC_HFT_2021221.Data
              //optionsBuilder.UseSqlServer(@"Server = .;AttachDbFilename=|DataDirectory|\Database1.mdf;Trusted_Connection = True;");
              //optionsBuilder.UseSqlServer(@"Server = .;Initial Catalog=D:\EEM4QC_HFT_2022_js_and_wpf-master\EEM4QC_HFT_2022_js_and_wpf-master\EEM4QC_HFT_2021221.Data\Database1.mdf;Trusted_Connection = True;TrustServerCertificate=False");
              //optionsBuilder.UseSqlServer(@"Server = .;Initial Catalog=C:\Users\user\Desktop\EEM4QC_HFT_2022_js_and_wpf-prog\EEM4QC_HFT_2021221.Data\Database1.mdf;Trusted_Connection = True;");
-               optionsBuilder.UseSqlServer(@"Server = .;AttachDbFilename=C:\Users\user\Desktop\EEM4QC_HFT_2022_js_and_wpf-prog\EEM4QC_HFT_2021221.Data\Database2.mdf;Trusted_Connection = True;");
+               optionsBuilder.UseSqlServer(@"Server = .;Initial Catalog=C:\Users\user\Desktop\EEM4QC_HFT_2022_js_and_wpf-prog\EEM4QC_HFT_2021221.Data\Database2.mdf;Trusted_Connection = True;");
             }
             base.OnConfiguring(optionsBuilder);
         }
