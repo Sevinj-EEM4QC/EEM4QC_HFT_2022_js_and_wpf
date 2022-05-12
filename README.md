@@ -1,4 +1,4 @@
-# Please check the main branch
+# Please check the prog branch
 
 # GUI in WPF and JS
 
