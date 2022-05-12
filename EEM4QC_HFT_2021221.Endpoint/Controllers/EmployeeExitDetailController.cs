@@ -1,4 +1,5 @@
-﻿using EEM4QC_HFT_2021221.Models;
+﻿using EEM4QC_HFT_2021221.Logic;
+using EEM4QC_HFT_2021221.Models;
 using EEM4QC_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,13 +22,17 @@ namespace EEM4QC_HFT_2021221.Controllers
     public class EmployeeExitDetailController : ControllerBase
     {
         private readonly IBaseRepository _repo;
+        private readonly IEmployeeExitDetailLogic _employeeLogic;
+        private readonly Data.DataContext dataContext;
         /// <summary>
         /// Constructor of controller
         /// </summary>
         /// <param name="repo"></param>
-        public EmployeeExitDetailController(IBaseRepository repo)
+        public EmployeeExitDetailController(Data.DataContext dataCon)
         {
-            _repo = repo;
+            dataContext = dataCon;
+            _repo = new BaseRepository(dataCon);
+            _employeeLogic = new EmployeeExitDetailLogic(_repo);
         }
 
         /// <summary>
@@ -41,7 +46,8 @@ namespace EEM4QC_HFT_2021221.Controllers
         {
             try
             {
-                return Created("", _repo.EmployeeExitDetailRepo.Create(_da));
+                var result = _repo.EmployeeExitDetailRepo.Create(_da);
+                return Ok(result);
             }
             catch (Exception ex)
             {

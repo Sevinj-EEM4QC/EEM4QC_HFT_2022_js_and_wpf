@@ -35,20 +35,19 @@ namespace EEM4QC_HFT_2021221.Logic
         /// </summary>
         /// <param name="emloyeeExitDetail">emloyeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Create(HrEmployeeExitDetail emloyeeExitDetail)
-            => await Task.Run(async () =>
+        public int Create(HrEmployeeExitDetail emloyeeExitDetail)
+        {
+            try
             {
-                try
-                {
-                    await this.repo.EmployeeExitDetailRepo.Create(emloyeeExitDetail).ConfigureAwait(false);
+                
 
-                    return true;
-                }
-                catch
-                {
-                    throw;
-                }
-            }).ConfigureAwait(false);
+                return this.repo.EmployeeExitDetailRepo.Create(emloyeeExitDetail);
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         /// <summary>
         /// Edit existed employee exit detail by employee  id.
@@ -56,12 +55,12 @@ namespace EEM4QC_HFT_2021221.Logic
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <param name="employeeExitDetail">employeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Edit(int eedWorkDetailId, HrEmployeeExitDetail employeeExitDetail)
-            => await Task.Run(async () =>
+        public bool Edit(int eedWorkDetailId, HrEmployeeExitDetail employeeExitDetail)
+           
             {
                 try
                 {
-                    await this.repo.EmployeeExitDetailRepo.Edit(eedWorkDetailId, employeeExitDetail).ConfigureAwait(false);
+                     this.repo.EmployeeExitDetailRepo.Edit(eedWorkDetailId, employeeExitDetail);
 
                     return true;
                 }
@@ -69,19 +68,19 @@ namespace EEM4QC_HFT_2021221.Logic
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Delete existed employee exit detail by employee  id.
         /// </summary>
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Delete(int eedWorkDetailId)
-            => await Task.Run(async () =>
+        public bool Delete(int eedWorkDetailId)
+            
             {
                 try
                 {
-                    await this.repo.EmployeeExitDetailRepo.Delete(eedWorkDetailId).ConfigureAwait(false);
+                    this.repo.EmployeeExitDetailRepo.Delete(eedWorkDetailId);
 
                     return true;
                 }
@@ -89,7 +88,7 @@ namespace EEM4QC_HFT_2021221.Logic
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
     }
 }
 

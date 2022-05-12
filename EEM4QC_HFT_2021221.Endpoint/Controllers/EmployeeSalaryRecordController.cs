@@ -1,4 +1,5 @@
-﻿using EEM4QC_HFT_2021221.Models;
+﻿using EEM4QC_HFT_2021221.Logic;
+using EEM4QC_HFT_2021221.Models;
 using EEM4QC_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,15 +22,70 @@ namespace EEM4QC_HFT_2021221.Controllers
     public class EmployeeSalaryRecordController : ControllerBase
     {
         private readonly IBaseRepository _repo;
+        private readonly ISalaryRecordLogic _salaryLogic;
+        private readonly Data.DataContext dataContext;
         /// <summary>
         /// Constructor of controller
         /// </summary>
         /// <param name="repo"></param>
-        public EmployeeSalaryRecordController(IBaseRepository repo)
+        public EmployeeSalaryRecordController(Data.DataContext dataCon)
         {
-            _repo = repo;
+            dataContext = dataCon;
+            _repo = new BaseRepository(dataCon);
+            _salaryLogic = new SalaryRecordLogic(_repo); 
         }
 
+        /// <summary>
+        /// Get employee 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetMaxSalary()
+        {
+            try
+            {
+                var list = _salaryLogic.GetMaxSalary();
+                
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Get employee 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetMinSalary()
+        {
+            try
+            {
+                var list = _salaryLogic.GetMinSalary();
+
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAvrSalary()
+        {
+            try
+            {
+                var list = _salaryLogic.GetAvrSalary();
+
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         /// <summary>
         /// Create new employee salary record
         /// </summary>

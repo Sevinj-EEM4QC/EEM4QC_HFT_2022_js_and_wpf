@@ -10,6 +10,10 @@ namespace EEM4QC_HFT_2021221.Logic
     public interface ISalaryRecordLogic
     {
         List<HrEmployeeSalaryRecord> GetList();
+
+        double GetMaxSalary();
+        double GetMinSalary();
+        double GetAvrSalary();
         /// <summary>
         /// Get single model.
         /// </summary>

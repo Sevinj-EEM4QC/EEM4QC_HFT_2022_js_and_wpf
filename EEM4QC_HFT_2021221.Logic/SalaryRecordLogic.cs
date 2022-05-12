@@ -87,5 +87,14 @@ namespace EEM4QC_HFT_2021221.Logic
 
         public List<HrEmployeeSalaryRecord> GetList()
             => this.repo.SalaryRecordRepo.GetList();
+
+        public double GetMaxSalary()
+            => this.repo.SalaryRecordRepo.GetMaxSalary();
+
+        public double GetMinSalary()
+            => this.repo.SalaryRecordRepo.GetMinSalary();
+
+        public double GetAvrSalary()
+            => this.repo.SalaryRecordRepo.GetAvrSalary();
     }
 }

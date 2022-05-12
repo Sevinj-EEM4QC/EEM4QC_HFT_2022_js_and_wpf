@@ -31,6 +31,18 @@ namespace EEM4QC_HFT_2021221.Repository
         public HrEmployeeSalaryRecord GetSingle(int ei)
         => this.ctx.Hr_Employee_Salary_Record.FirstOrDefault(x => x.Esr_Employee_Id == ei);
 
+
+        public List<HrEmployeeSalaryRecord> GetList()
+            => this.ctx.Hr_Employee_Salary_Record.ToList();
+
+        public double GetMaxSalary()
+           => this.ctx.Hr_Employee_Salary_Record.Max(p=>p.Esr_Amount);
+
+        public double GetMinSalary()
+           => this.ctx.Hr_Employee_Salary_Record.Min(p => p.Esr_Amount);
+
+        public double GetAvrSalary()
+           => this.ctx.Hr_Employee_Salary_Record.Average(p => p.Esr_Amount);
         /// <summary>
         /// Create employee credentials.
         /// </summary>
@@ -124,7 +136,5 @@ namespace EEM4QC_HFT_2021221.Repository
         private bool Exists(int employeeId)
             => this.ctx.Hr_Employee_Salary_Record.Any(x => x.Esr_Employee_Id == employeeId);
 
-        public List<HrEmployeeSalaryRecord> GetList()
-         => this.ctx.Hr_Employee_Salary_Record.AsNoTracking().ToList();
     }
 }

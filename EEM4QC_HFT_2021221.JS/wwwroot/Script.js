@@ -131,6 +131,7 @@ function update(id, name) {
     //}
 }
 
+
 $(document.body).on("click", ".add-employee", function (e) {
     e.preventDefault();
     //create();
@@ -159,6 +160,176 @@ $(document.body).on("click", ".add-employee", function (e) {
 
 })
 
+$(document.body).on("click", ".create-status", function (e) {
+    e.preventDefault();
+    //create();
+
+    var name = $(".create-employee-status-title").val();
+    var status = $(".create-employee-status-desc").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeStatus/Create",
+        data: JSON.stringify({
+            //"emps_Id": id,
+            "emps_Title": name,
+            "emps_Description": status
+        }),
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Status Created Successfully with ID: " + data);
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+$(document.body).on("click", ".update-status", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".update-employee-status-id").val();
+    var status = $(".update-employee-status-title").val();
+    var name = $(".update-employee-status-desc").val();
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeStatus/Update/" + id,
+        data: JSON.stringify({
+            "emps_Description": name,
+            "emps_Title": status ,
+        }),
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Status Updated Successfully ");
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+
+$(document.body).on("click", ".delete-status", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".delete-employee-status-id").val();
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeStatus/Delete/" + id,
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Status Deleted Successfully ");
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+
+
+
+$(document.body).on("click", ".create-exit", function (e) {
+    e.preventDefault();
+    //create();
+
+    var name = $(".create-employee-exit-detail").val();
+    var status = $(".create-employee-exit-question").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeExitDetail/Create",
+        data: JSON.stringify({
+            //"emps_Id": id,
+            "Eed_Details": name,
+            "Eed_Questions": status
+        }),
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Employee Exit Details Created Successfully with ID: " + data);
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+$(document.body).on("click", ".update-exit", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".update-employee-exit-id").val();
+    var status = $(".update-employee-exit-detail").val();
+    var name = $(".update-employee-exit-question").val();
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeExitDetail/Update/" + id,
+        data: JSON.stringify({
+            "Eed_Details": name,
+            "Eed_Questions": status
+        }),
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Employee Exit Details Updated Successfully ");
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+
+$(document.body).on("click", ".delete-exit", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".delete-employee-exit-id").val();
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeExitDetail/Delete/" + id,
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            alert("Employee Exit Detail deleted Successfully ");
+            //getdata();
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+})
+
+
+$(document.body).on("click", ".search-employee-status", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".employee-status-id").val();
+
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeStatus/Get/" + id,
+
+        success: function (data) {
+            console.log(data)
+            alert("Employee Status Found Successfully : " + data.emps_Description);
+            //getdata();
+            //console.log('Success:', data);
+            //$('.employees-table-data').html($(result).find('.employees-table-data'));
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+
+
+})
 $(document.body).on("click", ".search-employee", function (e) {
     e.preventDefault();
     //create();
@@ -184,6 +355,78 @@ $(document.body).on("click", ".search-employee", function (e) {
 
 })
 
+$(document.body).on("click", ".max-sal", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".employee-id").val();
+    var model = { Emp_Id: id };
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeSalaryRecord/GetMaxSalary/",
+
+        success: function (data) {
+            alert("Maximum Salary : " + data);
+            //getdata();
+            //console.log('Success:', data);
+            //$('.employees-table-data').html($(result).find('.employees-table-data'));
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+
+
+})
+$(document.body).on("click", ".min-sal", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".employee-id").val();
+    var model = { Emp_Id: id };
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeSalaryRecord/GetMinSalary/",
+
+        success: function (data) {
+            alert("Minimum Salary : " + data);
+            //getdata();
+            //console.log('Success:', data);
+            //$('.employees-table-data').html($(result).find('.employees-table-data'));
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+
+
+})
+$(document.body).on("click", ".avr-sal", function (e) {
+    e.preventDefault();
+    //create();
+
+    var id = $(".employee-id").val();
+    var model = { Emp_Id: id };
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:25793/api/EEM4QC_HFT_2021221.Endpoint/EmployeeSalaryRecord/GetAvrSalary/",
+
+        success: function (data) {
+            alert("Average Salary : " + data);
+            //getdata();
+            //console.log('Success:', data);
+            //$('.employees-table-data').html($(result).find('.employees-table-data'));
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+
+
+})
 $(document.body).on("click", ".exited-employee", function (e) {
     e.preventDefault();
     //create();

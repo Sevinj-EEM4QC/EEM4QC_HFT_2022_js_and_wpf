@@ -29,15 +29,15 @@ namespace EEM4QC_HFT_2021221.Repository
         /// <param name="id">id.</param>
         /// <returns>HrEmployeeStatus.</returns>
         public HrEmployeeStatus GetSingle(int id)
-        => this.ctx.Hr_Employee_Status.AsNoTracking().FirstOrDefault(x => x.Emps_Id == id);
+        => this.ctx.Hr_Employee_Status.FirstOrDefault(x => x.Emps_Id == id);
 
         /// <summary>
         /// Create simple employee status.
         /// </summary>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns>int.</returns>
-        public async Task<int> Create(HrEmployeeStatus employeeStatus) =>
-            await Task.Run(() =>
+        public int Create(HrEmployeeStatus employeeStatus) 
+           
             {
                 try
                 {
@@ -50,15 +50,14 @@ namespace EEM4QC_HFT_2021221.Repository
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Delete existed employee status.
         /// </summary>
         /// <param name="id">id.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Delete(int id) =>
-            await Task.Run(() =>
+        public bool Delete(int id)
             {
                 try
                 {
@@ -75,7 +74,7 @@ namespace EEM4QC_HFT_2021221.Repository
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Edit existed employee status.
@@ -83,9 +82,7 @@ namespace EEM4QC_HFT_2021221.Repository
         /// <param name="id">id.</param>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Edit(int id, HrEmployeeStatus employeeStatus) =>
-            await Task.Run(() =>
-            {
+        public bool Edit(int id, HrEmployeeStatus employeeStatus)           {
                 try
                 {
                     if (!this.Exists(id))
@@ -107,7 +104,7 @@ namespace EEM4QC_HFT_2021221.Repository
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Check if employee status exist or not.

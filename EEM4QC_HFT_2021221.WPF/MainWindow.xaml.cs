@@ -26,6 +26,9 @@ namespace EEM4QC_HFT_2021221.WPF
     public partial class MainWindow : Window
     {
         private readonly IEmployeeLogic _employeeLogic;
+        private readonly ISalaryRecordLogic _salaryLogic;
+        private readonly IEmployeeExitDetailLogic _exitDetailLogic;
+        private readonly IEmployeeStatusLogic _statusLogic;
         private DataContext _data = new DataContext();
         private readonly IBaseRepository repo;
 
@@ -34,6 +37,9 @@ namespace EEM4QC_HFT_2021221.WPF
             InitializeComponent();
             repo = new BaseRepository(_data);
             _employeeLogic = new EmployeeLogic(repo);
+            _salaryLogic = new SalaryRecordLogic(repo);
+            _exitDetailLogic = new EmployeeExitDetailLogic(repo);
+            _statusLogic = new EmployeeStatusLogic(repo);
         }
 
         public MainWindow(EmployeeLogic employeeLogic)
@@ -78,7 +84,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
         void BtnDelete(object sender, RoutedEventArgs e)
         {
-            int employeeId = 9;
+            int employeeId = 4;
 
             var result = _employeeLogic.Delete(employeeId);
 
@@ -95,7 +101,7 @@ namespace EEM4QC_HFT_2021221.WPF
 
         void BtnGetEmployee(object sender, RoutedEventArgs e)
         {
-            int employeeId = 5;
+            int employeeId = 0;
 
             Models.HrEmployee result = _employeeLogic.GetSingle(employeeId);
 
@@ -151,6 +157,121 @@ namespace EEM4QC_HFT_2021221.WPF
                 }
 
                 txt1.Text = sb.ToString();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            txt1.Text = "Average Salary : " + _salaryLogic.GetAvrSalary();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            txt1.Text = "Minimum Salary : " + _salaryLogic.GetMinSalary();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+            txt1.Text = "Maximum Salary : " + _salaryLogic.GetMaxSalary();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Models.HrEmployeeExitDetail employeeData = new Models.HrEmployeeExitDetail()
+            {
+                Eed_Details = "NewExitDetails",
+            };
+
+            var result = _exitDetailLogic.Create(employeeData);
+
+            txt1.Text = $"Exit Details created, ID : {result}";
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Models.HrEmployeeExitDetail eedData = new Models.HrEmployeeExitDetail()
+            {
+                Eed_Details = "ModifiedExitDetails",
+            };
+
+            int exitDetailId = 1;
+
+            var result = _exitDetailLogic.Edit(exitDetailId, eedData);
+
+            if (result)
+            {
+                txt1.Text = "Exit Detail modified successfully!";
+            }
+            else
+            {
+                txt1.Text = "Could not modify Exit Detail!";
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            int eedId = 5;
+
+            var result = _exitDetailLogic.Delete(eedId);
+
+            if (result)
+            {
+                txt1.Text = "Exit Detail deleted successfully!";
+            }
+            else
+            {
+                txt1.Text = "Could not delete Exit Detail!";
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Models.HrEmployeeStatus statusData = new Models.HrEmployeeStatus()
+            {
+                Emps_Title = "NewStatusTitle",
+            };
+
+            var result = _statusLogic.Create(statusData);
+
+            txt1.Text = $"Status created, ID : {result}";
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            Models.HrEmployeeStatus statusData = new Models.HrEmployeeStatus()
+            {
+                Emps_Title = "ModifiedStatusDetails",
+            };
+
+            int statusId = 1;
+
+            var result = _statusLogic.Edit(statusId, statusData);
+
+            if (result)
+            {
+                txt1.Text = "Status modified successfully!";
+            }
+            else
+            {
+                txt1.Text = "Could not modify Status!";
+            }
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            int statusId = 5;
+
+            var result = _statusLogic.Delete(statusId);
+
+            if (result)
+            {
+                txt1.Text = "Status deleted successfully!";
+            }
+            else
+            {
+                txt1.Text = "Could not delete Status!";
             }
         }
     }

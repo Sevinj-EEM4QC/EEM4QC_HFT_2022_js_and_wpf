@@ -22,7 +22,7 @@ namespace EEM4QC_HFT_2021221.Repository
         /// </summary>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns>int.</returns>
-        public Task<int> Create(HrEmployeeStatus employeeStatus);
+        public int Create(HrEmployeeStatus employeeStatus);
 
         /// <summary>
         /// Edit existed employee status.
@@ -30,14 +30,14 @@ namespace EEM4QC_HFT_2021221.Repository
         /// <param name="id">id.</param>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns>bool.</returns>
-        public Task<bool> Edit(int id, HrEmployeeStatus employeeStatus);
+        public bool Edit(int id, HrEmployeeStatus employeeStatus);
 
         /// <summary>
         /// Delete existed employee status.
         /// </summary>
         /// <param name="id">id.</param>
         /// <returns>bool.</returns>
-        public Task<bool> Delete(int id);
+        public bool Delete(int id);
     }
 }
 

@@ -8,14 +8,23 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
-        <Button Click="BtnAdd" Content="Add" HorizontalAlignment="Left" Height="46" Margin="280,50,0,0" VerticalAlignment="Top" Width="104"/>
-        <Button Click="BtnModify" Content="Modify" HorizontalAlignment="Left" Height="42" Margin="280,119,0,0" VerticalAlignment="Top" Width="104"/>
-        <Button Click="BtnDelete" Content="Delete" HorizontalAlignment="Left" Height="42" Margin="280,183,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button Click="BtnAdd" Content="Add Employee" HorizontalAlignment="Left" Height="20" Margin="38,201,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnModify" Content="Modify Employee" HorizontalAlignment="Left" Height="20" Margin="38,169,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnDelete" Content="Delete Employee" HorizontalAlignment="Left" Height="20" Margin="38,234,0,0" VerticalAlignment="Top" Width="180"/>
 
-        <Button Click="BtnGetEmployee" Content="GetEmployee" HorizontalAlignment="Left" Height="46" Margin="480,50,0,0" VerticalAlignment="Top" Width="104"/>
-        <Button Click="BtnGetUnExitedEmployees" Content="GetUnExitedEmployees" HorizontalAlignment="Left" Height="42" Margin="480,119,0,0" VerticalAlignment="Top" Width="104"/>
-        <Button Click="BtnGetList" Content="GetList" HorizontalAlignment="Left" Height="42" Margin="480,183,0,0" VerticalAlignment="Top" Width="104"/>
-         
-        <TextBox Name="txt1"  HorizontalAlignment="Left" Margin="330,243,0,0" VerticalAlignment="Top" Width="200" Height="50"/>
+        <Button Click="BtnGetEmployee" Content="GetEmployee" HorizontalAlignment="Left" Height="20" Margin="38,72,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnGetUnExitedEmployees" Content="GetUnExitedEmployees" HorizontalAlignment="Left" Height="17" Margin="38,100,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnGetList" Content="GetList" HorizontalAlignment="Left" Height="17" Margin="38,128,0,0" VerticalAlignment="Top" Width="180"/>
+
+        <TextBox Name="txt1"  HorizontalAlignment="Left" Margin="606,110,0,0" VerticalAlignment="Top" Width="161" Height="175"/>
+        <Button Click="Button_Click_3" Content="Create Exit Detail" HorizontalAlignment="Left" Height="20" Margin="255,128,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_4" Content="Update Exit Detail" HorizontalAlignment="Left" Height="20" Margin="255,100,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_5" Content="Delete Exit Detail" HorizontalAlignment="Left" Height="20" Margin="255,72,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_6" Content="Add Status" HorizontalAlignment="Left" Height="20" Margin="255,169,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_7" Content="Modify Status" HorizontalAlignment="Left" Height="20" Margin="255,201,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_8" Content="Delete Status" HorizontalAlignment="Left" Height="20" Margin="255,234,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click" Content="Average Salary" HorizontalAlignment="Left" Height="20" Margin="165,333,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_1" Content="Minimum Salary" HorizontalAlignment="Left" Height="20" Margin="165,301,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_2" Content="Maximum Salary" HorizontalAlignment="Left" Height="20" Margin="165,366,0,0" VerticalAlignment="Top" Width="180"/>
     </Grid>
 </Window>

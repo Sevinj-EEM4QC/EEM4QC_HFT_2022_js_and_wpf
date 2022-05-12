@@ -50,6 +50,9 @@ namespace EEM4QC_HFT_2021221.Controllers
             try
             {
                 var list = _employeeLogic.GetList();
+
+
+
                 return Ok(list);
             }
             catch (Exception ex)

@@ -35,12 +35,12 @@ namespace EEM4QC_HFT_2021221.Logic
         /// </summary>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns><![CDATA[int]]></returns>
-        public async Task<int> Create(HrEmployeeStatus employeeStatus)
-            => await Task.Run(async () =>
+        public int Create(HrEmployeeStatus employeeStatus)
+           
             {
                 try
                 {
-                    await this.repo.EmployeeStatusRepo.Create(employeeStatus).ConfigureAwait(false);
+                this.repo.EmployeeStatusRepo.Create(employeeStatus);
 
                     return employeeStatus.Emps_Id;
                 }
@@ -48,26 +48,25 @@ namespace EEM4QC_HFT_2021221.Logic
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Delete existed employee status.
         /// </summary>
         /// <param name="id">id.</param>
         /// <returns><![CDATA[bool]]></returns>
-        public async Task<bool> Delete(int id)
-            => await Task.Run(async () =>
+        public bool Delete(int id)
             {
                 try
                 {
-                    await this.repo.EmployeeStatusRepo.Delete(id).ConfigureAwait(false);
+                this.repo.EmployeeStatusRepo.Delete(id);
                     return true;
                 }
                 catch
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Edit existed employee status.
@@ -75,19 +74,18 @@ namespace EEM4QC_HFT_2021221.Logic
         /// <param name="id">id.</param>
         /// <param name="employeeStatus">employeeStatus.</param>
         /// <returns><![CDATA[bool]]></returns>
-        public async Task<bool> Edit(int id, HrEmployeeStatus employeeStatus) =>
-            await Task.Run(async () =>
+        public bool Edit(int id, HrEmployeeStatus employeeStatus) 
             {
                 try
                 {
-                    await this.repo.EmployeeStatusRepo.Edit(id, employeeStatus).ConfigureAwait(false);
+                this.repo.EmployeeStatusRepo.Edit(id, employeeStatus);
                     return true;
                 }
                 catch
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         public List<HrEmployeeStatus> GetList()
         => repo.EmployeeStatusRepo.GetList();

@@ -10,6 +10,10 @@ namespace EEM4QC_HFT_2021221.Repository
     public interface ISalaryRecordRepository
     {
         List<HrEmployeeSalaryRecord> GetList();
+        double GetMaxSalary();
+        double GetMinSalary();
+        double GetAvrSalary();
+
         /// <summary>
         /// Get single.
         /// </summary>

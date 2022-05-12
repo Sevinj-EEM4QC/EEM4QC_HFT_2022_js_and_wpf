@@ -21,7 +21,7 @@ namespace EEM4QC_HFT_2021221.Logic
         /// </summary>
         /// <param name="emloyeeExitDetail">emloyeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public Task<bool> Create(HrEmployeeExitDetail emloyeeExitDetail);
+        public int Create(HrEmployeeExitDetail emloyeeExitDetail);
 
         /// <summary>
         /// Edit existed employee exit detail by employee  id.
@@ -29,13 +29,13 @@ namespace EEM4QC_HFT_2021221.Logic
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <param name="emloyeeExitDetail">emloyeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public Task<bool> Edit(int eedWorkDetailId, HrEmployeeExitDetail emloyeeExitDetail);
+        public bool Edit(int eedWorkDetailId, HrEmployeeExitDetail emloyeeExitDetail);
 
         /// <summary>
         /// Delete existed employee exit detail.
         /// </summary>
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <returns>bool.</returns>
-        public Task<bool> Delete(int eedWorkDetailId);
+        public bool Delete(int eedWorkDetailId);
     }
 }

@@ -42,10 +42,7 @@ namespace EEM4QC_HFT_2021221.Controllers
             try
             {
                 var result = _repo.EmployeeStatusRepo.Create(_dac);
-                return Created("", new 
-                {
-                    _id = result
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -56,7 +53,24 @@ namespace EEM4QC_HFT_2021221.Controllers
                 });
             }
         }
-
+        /// <summary>
+        /// Get existed employee
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public IActionResult Get(int  id)
+        {
+            try
+            {
+                var result = _repo.EmployeeStatusRepo.GetSingle(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         /// <summary>
         /// Update existed employee status
         /// </summary>

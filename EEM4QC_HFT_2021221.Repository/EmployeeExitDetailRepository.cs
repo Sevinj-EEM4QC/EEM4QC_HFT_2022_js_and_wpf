@@ -37,29 +37,28 @@ namespace EEM4QC_HFT_2021221.Repository
         /// </summary>
         /// <param name="emloyeeExitDetail">emloyeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Create(HrEmployeeExitDetail emloyeeExitDetail) =>
-            await Task.Run(() =>
+        public int Create(HrEmployeeExitDetail emloyeeExitDetail)
+        {
+            try
             {
-                try
-                {
-                    var model = emloyeeExitDetail;
-                    this.ctx.Hr_Employee_Exit_Detail.Add(model);
+                var model = emloyeeExitDetail;
+                this.ctx.Hr_Employee_Exit_Detail.Add(model);
 
-                    var workDetail = this.ctx.Hr_Employee_Work_Details
-                                            .FirstOrDefault(x => x.Wd_Id == model.Eed_Employee_Work_Details_Id);
-                    this.ctx.Entry(workDetail).State = EntityState.Modified;
+                /*var workDetail = this.ctx.Hr_Employee_Work_Details
+                                        .FirstOrDefault(x => x.Wd_Id == model.Eed_Employee_Work_Details_Id);
+                this.ctx.Entry(workDetail).State = EntityState.Modified;
 
-                    workDetail.Wd_Employee_Exit_Detail_Id = model.Eed_Id;
+                workDetail.Wd_Employee_Exit_Detail_Id = model.Eed_Id;*/
 
-                    this.ctx.SaveChanges();
+                this.ctx.SaveChanges();
 
-                    return true;
-                }
-                catch
-                {
-                    throw;
-                }
-            }).ConfigureAwait(false);
+                return model.Eed_Id;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         /// <summary>
         /// Edit existed employee exit detail by employee  id.
@@ -67,12 +66,11 @@ namespace EEM4QC_HFT_2021221.Repository
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <param name="employeeExitDetail">employeeExitDetail.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Edit(int eedWorkDetailId, HrEmployeeExitDetail employeeExitDetail) =>
-            await Task.Run(() =>
+        public bool Edit(int eedWorkDetailId, HrEmployeeExitDetail employeeExitDetail) 
             {
                 try
                 {
-                    var model = this.ctx.Hr_Employee_Exit_Detail.FirstOrDefault(x => x.Eed_Employee_Work_Details_Id == eedWorkDetailId);
+                    var model = this.ctx.Hr_Employee_Exit_Detail.FirstOrDefault(x => x.Eed_Id == eedWorkDetailId);
 
                     this.ctx.Attach(model);
 
@@ -90,19 +88,18 @@ namespace EEM4QC_HFT_2021221.Repository
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
 
         /// <summary>
         /// Delete existed employee exit detail by employee  id.
         /// </summary>
         /// <param name="eedWorkDetailId">eedWorkDetailId.</param>
         /// <returns>bool.</returns>
-        public async Task<bool> Delete(int eedWorkDetailId) =>
-            await Task.Run(() =>
+        public bool Delete(int eedWorkDetailId) 
             {
                 try
                 {
-                    var exit_detail = this.ctx.Hr_Employee_Exit_Detail.FirstOrDefault(x => x.Eed_Employee_Work_Details_Id == eedWorkDetailId);
+                    var exit_detail = this.ctx.Hr_Employee_Exit_Detail.FirstOrDefault(x => x.Eed_Id == eedWorkDetailId);
                     this.ctx.Hr_Employee_Exit_Detail.Remove(exit_detail);
                     this.ctx.SaveChanges();
 
@@ -112,7 +109,7 @@ namespace EEM4QC_HFT_2021221.Repository
                 {
                     throw;
                 }
-            }).ConfigureAwait(false);
+            }
     }
 }
 
