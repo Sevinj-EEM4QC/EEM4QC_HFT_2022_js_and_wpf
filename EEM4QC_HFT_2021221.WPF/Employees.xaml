@@ -1,0 +1,19 @@
+﻿<Window x:Class="EEM4QC_HFT_2021221.WPF.Employees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EEM4QC_HFT_2021221.WPF"
+        mc:Ignorable="d"
+        Title="Employees" Height="450" Width="800">
+    <Grid>
+        <Button Click="BtnAdd" Content="Add Employee" HorizontalAlignment="Left" Height="50" Margin="20,37,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnModify" Content="Modify Employee" HorizontalAlignment="Left" Height="50" Margin="299,37,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnDelete" Content="Delete Employee" HorizontalAlignment="Left" Height="50" Margin="561,37,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnGetEmployee" Content="GetEmployee" HorizontalAlignment="Left" Height="56" Margin="20,136,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnGetUnExitedEmployees" Content="GetUnExitedEmployees" HorizontalAlignment="Left" Height="56" Margin="299,136,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="BtnGetList" Content="GetList" HorizontalAlignment="Left" Height="56" Margin="561,136,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="20,241,0,0" VerticalAlignment="Top" Height="48" Width="180" Click="Button_Click"/>
+
+    </Grid>
+</Window>

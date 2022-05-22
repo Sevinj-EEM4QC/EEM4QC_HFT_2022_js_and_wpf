@@ -1,0 +1,18 @@
+﻿<Window x:Class="EEM4QC_HFT_2021221.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EEM4QC_HFT_2021221.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Button Click="Button_Click_3" Content="Exit Details" HorizontalAlignment="Left" Height="48" Margin="272,72,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_4" Content="Employee Status" HorizontalAlignment="Left" Height="48" Margin="517,72,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click" Content="Average Salary" HorizontalAlignment="Left" Height="47" Margin="272,170,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Click="Button_Click_1" Content="Minimum Salary" HorizontalAlignment="Left" Height="47" Margin="46,170,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Click="Button_Click_2" Content="Maximum Salary" HorizontalAlignment="Left" Height="47" Margin="517,170,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Employees" HorizontalAlignment="Left" Margin="46,72,0,0" VerticalAlignment="Top" Height="48" Width="170" Click="Button_Click_9"/>
+    </Grid>
+</Window>

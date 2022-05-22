@@ -1,0 +1,15 @@
+﻿<Window x:Class="EEM4QC_HFT_2021221.WPF.DeleteEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EEM4QC_HFT_2021221.WPF"
+        mc:Ignorable="d"
+        Title="Delete Employee" Height="450" Width="800">
+    <Grid>
+        <Label Content="Employee ID :" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEmployeeId" HorizontalAlignment="Left" Margin="184,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Height="22"/>
+        <Button Content="Delete Employee" HorizontalAlignment="Left" Margin="52,87,0,0" VerticalAlignment="Top" Height="42" Width="147" Click="Button_Click"/>
+
+    </Grid>
+</Window>
